@@ -20,7 +20,8 @@
     "express-session": "^1.15.6",
     "mongoose": "^5.3.14",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-icons": "^3.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

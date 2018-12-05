@@ -1,6 +1,8 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb"],
+  "extends": [
+    "airbnb"
+  ],
   "env": {
     "browser": true,
     "node": true
@@ -13,6 +15,7 @@
     "func-names": "off",
     "linebreak-style": "off",
     "eol-last": "off",
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    "jsx-quotes": "off"
   }
 }
