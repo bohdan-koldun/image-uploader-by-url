@@ -16,6 +16,8 @@
     "linebreak-style": "off",
     "eol-last": "off",
     "react/prefer-stateless-function": "off",
-    "jsx-quotes": "off"
+    "jsx-quotes": "off",
+    "import/prefer-default-export": "off",
+    "arrow-body-style": "off"
   }
 }
