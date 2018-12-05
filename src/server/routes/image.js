@@ -3,15 +3,16 @@ const imageApi = require('../services/api/image');
 const imageUploader = require('../services/uploader/imageUploader');
 
 router.get('/', (req, res, next) => {
-  imageApi.findAll((err, data) => {
-    if (!err) {
+  try {
+    imageApi.findAll((data) => {
       res.data = data;
       res.json(res.data);
-    } else {
-      res.status(400);
-      res.end();
-    }
-  });
+    });
+  } catch (error) {
+    res.status(400);
+    res.data = error;
+    res.json(res.data);
+  }
 });
 
 router.get('/:id', (req, res, next) => {
@@ -38,7 +39,8 @@ router.post('/', async (req, res, next) => {
     });
   } catch (error) {
     res.status(400);
-    res.json(error);
+    res.data = error;
+    res.json(res.data);
   }
 });
 
