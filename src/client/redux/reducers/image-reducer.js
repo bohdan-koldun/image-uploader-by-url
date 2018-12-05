@@ -32,7 +32,7 @@ const image = (state = initialState.image, action) => {
 
 const imageList = (state = initialState.imageList, action) => {
   switch (action.type) {
-    case Types.GET_ALL_IMAGES_SUCCESS:
+    case Types.GET_IMAGE_LIST_SUCCESS:
       return action.payload;
     default:
       return state;

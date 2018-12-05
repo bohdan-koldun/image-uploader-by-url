@@ -21,6 +21,6 @@ module.exports = async (url, localPath) => {
       throw new Error('File is notlocalPath image!');
     }
   });
-
+  console.log(imageInfo);
   return imageInfo;
 };

@@ -2,9 +2,9 @@ const router = require('express').Router();
 const imageApi = require('../services/api/image');
 const imageUploader = require('../services/uploader/imageUploader');
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
-    imageApi.findAll((data) => {
+    await imageApi.findAll((err, data) => {
       res.data = data;
       res.json(res.data);
     });
@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
   }
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   imageApi.findOne(req.params.id, (err, data) => {
     if (!err) {
       res.data = data;
