@@ -1,8 +1,9 @@
 const router = require('express').Router();
-const messageService = require('../services/api/image');
+const imageApi = require('../services/api/image');
+const imageUploader = require('../services/uploader/imageUploader');
 
 router.get('/', (req, res, next) => {
-  messageService.findAll((err, data) => {
+  imageApi.findAll((err, data) => {
     if (!err) {
       res.data = data;
       res.json(res.data);
@@ -14,7 +15,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-  messageService.findOne(req.params.id, (err, data) => {
+  imageApi.findOne(req.params.id, (err, data) => {
     if (!err) {
       res.data = data;
       res.json(res.data);
@@ -25,18 +26,20 @@ router.get('/:id', (req, res, next) => {
   });
 });
 
-router.post('/', (req, res, next) => {
-  const newImage = req.body;
+router.post('/', async (req, res, next) => {
+  try {
+    const { url } = req.body;
+    const imageUploudedInfo = await imageUploader(url, 'uploads');
+    imageUploudedInfo.sourceURL = url;
 
-  messageService.createOne(newImage, (err, data) => {
-    if (!err) {
+    imageApi.createOne(imageUploudedInfo, (data) => {
       res.data = data;
       res.json(res.data);
-    } else {
-      res.status(400);
-      res.end();
-    }
-  });
+    });
+  } catch (error) {
+    res.status(400);
+    res.json(error);
+  }
 });
 
 module.exports = router;

@@ -18,6 +18,11 @@
     "react/prefer-stateless-function": "off",
     "jsx-quotes": "off",
     "import/prefer-default-export": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
+    "no-trailing-spaces": "off",
+    "no-underscore-dangle": "off",
+    "react/prop-types": "off",
+    "no-shadow": "off"
   }
 }
