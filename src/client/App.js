@@ -41,7 +41,10 @@ class App extends Component {
               </div>
           }
           {isFetching && <Loader type="Bars" color="#somecolor" height={80} width={80} />}
-          {imageList && <ImagesList imageList={imageList} getFilteredImages={getFilteredImages} />}
+          {
+            imageList && imageList.length > 0 
+            && <ImagesList imageList={imageList} getFilteredImages={getFilteredImages} />
+          }
         </div>
       </div>
     );
