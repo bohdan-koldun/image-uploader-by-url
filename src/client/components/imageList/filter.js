@@ -9,8 +9,8 @@ export default class Filter extends Component {
     maxHeight: Number.MAX_SAFE_INTEGER,
     minWidth: 0,
     maxWidth: Number.MAX_SAFE_INTEGER,
-    startDate: new Date(1976).toISOString(),
-    endDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString()
+    startDate: new Date(1976).toISOString().substring(0, 16),
+    endDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString().substring(0, 16)
   }
 
   handleChange = (e) => {
