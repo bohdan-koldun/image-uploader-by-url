@@ -36,3 +36,19 @@ In the development mode, we will have 2 servers running. The front end code will
 ### Production mode
 
 In the production mode, we will have only 1 server running. All the client side code will be bundled into static files using webpack and it will be served by the Node.js/Express application.
+
+### MongoDB config
+Should work automatically with the project, if there are no conflicts
+
+#### /src/server/config/index.js
+```javascript
+module.exports = {
+  dbname: 'image-uploader',
+  uri: 'mongodb://localhost/image-uploader',
+  opts: {
+    auto_reconnect: true,
+    useNewUrlParser: true,
+    poolSize: 40
+  }
+};
+```
