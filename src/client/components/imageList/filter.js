@@ -8,7 +8,9 @@ export default class Filter extends Component {
     minHeight: 0,
     maxHeight: Number.MAX_SAFE_INTEGER,
     minWidth: 0,
-    maxWidth: Number.MAX_SAFE_INTEGER
+    maxWidth: Number.MAX_SAFE_INTEGER,
+    startDate: new Date(1976).toISOString(),
+    endDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toISOString()
   }
 
   handleChange = (e) => {
@@ -26,7 +28,9 @@ export default class Filter extends Component {
       minHeight,
       maxHeight,
       minWidth,
-      maxWidth
+      maxWidth,
+      startDate,
+      endDate
     } = this.state;
 
     return (
@@ -40,6 +44,10 @@ export default class Filter extends Component {
         <input type='number' name='minWidth' value={minWidth} min='0' onChange={this.handleChange} />
         <span>max<br />width:</span>
         <input type='number' name='maxWidth' value={maxWidth} min='1' onChange={this.handleChange} />
+        <span>start<br />date:</span>
+        <input type='datetime-local' name='startDate' value={startDate} onChange={this.handleChange} />
+        <span>end<br />date:</span>
+        <input type='datetime-local' name='endDate' value={endDate} onChange={this.handleChange} />
         <button type='button' onClick={this.handleSubmit}>
           <FaSearch size='16px' />
           <span>find</span>

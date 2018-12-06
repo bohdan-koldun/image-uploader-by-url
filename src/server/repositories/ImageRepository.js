@@ -14,13 +14,16 @@ class ImageRepository extends Repository {
       minHeight, 
       maxHeight, 
       minWidth, 
-      maxWidth 
+      maxWidth,
+      startDate,
+      endDate
     } = filter;
     
     const query = model.find({
       name: new RegExp(`(${keyword})`, 'g'),
       width: { $gte: minWidth, $lte: maxWidth },
-      height: { $gte: minHeight, $lte: maxHeight }
+      height: { $gte: minHeight, $lte: maxHeight },
+      createdAt: { $gte: startDate, $lte: endDate }
     });
     query.exec(callback);
   }
