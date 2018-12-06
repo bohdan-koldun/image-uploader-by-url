@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const mongooseConnection = require('./db/dbconnect').connection;
 
 const app = express();
@@ -19,9 +20,11 @@ app.use(
 
 app.use(express.static('dist'));
 
+app.use(cors());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes/routes')(app);
 
-app.listen(8080, () => console.log('Listening on port 8080!'));
+app.listen(3001, () => console.log('Listening on port 3001!'));

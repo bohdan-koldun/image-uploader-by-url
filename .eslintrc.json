@@ -1,6 +1,8 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb"],
+  "extends": [
+    "airbnb"
+  ],
   "env": {
     "browser": true,
     "node": true
@@ -13,6 +15,17 @@
     "func-names": "off",
     "linebreak-style": "off",
     "eol-last": "off",
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    "jsx-quotes": "off",
+    "import/prefer-default-export": "off",
+    "arrow-body-style": "off",
+    "arrow-parens": "off",
+    "no-trailing-spaces": "off",
+    "no-underscore-dangle": "off",
+    "react/prop-types": "off",
+    "no-shadow": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-closing-tag-location": "off",
+    "react/jsx-one-expression-per-line": "off"
   }
 }

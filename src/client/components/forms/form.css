@@ -1,0 +1,35 @@
+.uploader-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.uploader-form input{
+    border: 1px solid green;
+    padding: 15px 10px;
+    margin: 10px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.uploader-form button{
+    border: none;
+    background: blue;
+    color: white;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploader-form button:hover{
+    background: rgb(52, 5, 221);
+}
+
+.uploader-form button svg{
+    margin-right: 5px;
+}

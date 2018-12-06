@@ -5,6 +5,9 @@ const imageSchema = Schema(
   {
     name: String,
     path: String,
+    size: Number,
+    width: Number,
+    height: Number,
     sourceURL: String
   },
   {
