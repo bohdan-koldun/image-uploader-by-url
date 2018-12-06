@@ -11,7 +11,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/bohdan-koldun/image-uploader-by-url
+git clone https://github.com/bohdan-koldun/image-uploader-by-url.git
 
 # Go inside the directory
 cd image-uploader-by-url
