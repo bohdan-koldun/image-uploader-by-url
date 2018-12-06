@@ -3,12 +3,12 @@ import { FaSearch } from 'react-icons/fa';
 import './images.css';
 
 export default class Filter extends Component {
-  state = { 
-    keyword: '', 
-    minHeight: 0, 
-    maxHeight: +Infinity, 
-    minWidth: 0, 
-    maxWidth: +Infinity 
+  state = {
+    keyword: '',
+    minHeight: 0,
+    maxHeight: Number.MAX_SAFE_INTEGER,
+    minWidth: 0,
+    maxWidth: Number.MAX_SAFE_INTEGER
   }
 
   handleChange = (e) => {
@@ -16,21 +16,17 @@ export default class Filter extends Component {
   }
 
   handleSubmit = () => {
-    const { keyword, minHeight, maxHeight } = this.state;
-    if (keyword !== '') {
-      const { uploadNewImage } = this.props;
-      uploadNewImage({ keyword });
-      this.setState({ keyword: '' });
-    }
+    const { getFilteredImages } = this.props;
+    getFilteredImages(this.state);
   }
 
   render() {
-    const { 
-      keyword, 
-      minHeight, 
-      maxHeight, 
-      minWidth, 
-      maxWidth 
+    const {
+      keyword,
+      minHeight,
+      maxHeight,
+      minWidth,
+      maxWidth
     } = this.state;
 
     return (

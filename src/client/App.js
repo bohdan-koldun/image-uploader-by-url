@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Loader from 'react-loader-spinner';
-import { uploadNewImage, getAllImages } from './redux/actions/image-action';
+import { uploadNewImage, getAllImages, getFilteredImages } from './redux/actions/image-action';
 import ImageUrlForm from './components/forms/ImageUrlForm';
 import ImagesList from './components/imageList';
 import './app.css';
@@ -16,6 +16,7 @@ class App extends Component {
   render() {
     const {
       uploadNewImage,
+      getFilteredImages,
       imageList,
       image,
       isFetching
@@ -40,7 +41,7 @@ class App extends Component {
               </div>
           }
           {isFetching && <Loader type="Bars" color="#somecolor" height={80} width={80} />}
-          {imageList && <ImagesList imageList={imageList} />}
+          {imageList && <ImagesList imageList={imageList} getFilteredImages={getFilteredImages} />}
         </div>
       </div>
     );
@@ -56,7 +57,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ uploadNewImage, getAllImages }, dispatch);
+  return bindActionCreators({ uploadNewImage, getAllImages, getFilteredImages }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

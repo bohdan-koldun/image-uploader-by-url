@@ -13,12 +13,23 @@ export function uploadNewImage(newImage) {
   };
 }
 
-
 export function getAllImages() {
   return async function (dispatch) {
     try {
       dispatch({ type: Types.GET_IMAGE_LIST });
       const { data } = await imageAPI.fetchAllImages();
+      dispatch({ type: Types.GET_IMAGE_LIST_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: Types.GET_IMAGE_LIST_FAILED });
+    }
+  };
+}
+
+export function getFilteredImages(filter) {
+  return async function (dispatch) {
+    try {
+      dispatch({ type: Types.GET_IMAGE_LIST });
+      const { data } = await imageAPI.fetchFilteredImages(filter);
       dispatch({ type: Types.GET_IMAGE_LIST_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: Types.GET_IMAGE_LIST_FAILED });

@@ -7,6 +7,12 @@ module.exports = {
     });
   },
 
+  findByFilter: (filter, callback) => {
+    ImageRepository.getFiltered(filter, (err, data) => {
+      callback(null, data);
+    });
+  },
+
   findOne: (id, callback) => {
     ImageRepository.getById(id, (err, data) => {
       callback(err, data);

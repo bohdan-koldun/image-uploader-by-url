@@ -16,15 +16,16 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-  imageApi.findOne(req.params.id, (err, data) => {
-    if (!err) {
+  try {
+    await imageApi.findOne(req.params.id, (err, data) => {
       res.data = data;
       res.json(res.data);
-    } else {
-      res.status(400);
-      res.end();
-    }
-  });
+    });
+  } catch (error) {
+    res.status(400);
+    res.data = error;
+    res.json(res.data);
+  }
 });
 
 router.post('/', async (req, res, next) => {
@@ -41,6 +42,20 @@ router.post('/', async (req, res, next) => {
   } catch (error) {
     res.status(400);
     res.json(url);
+  }
+});
+
+router.post('/filter', async (req, res, next) => {
+  const filter = req.body;
+   
+  try {
+    imageApi.findByFilter(filter, (err, data) => {
+      res.data = data;
+      res.json(res.data);
+    });
+  } catch (error) {
+    res.status(400);
+    res.json(filter);
   }
 });
 
