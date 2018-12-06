@@ -34,6 +34,8 @@ const imageList = (state = initialState.imageList, action) => {
   switch (action.type) {
     case Types.GET_IMAGE_LIST_SUCCESS:
       return action.payload;
+    case Types.UPLOAD_NEW_IMAGE_SUCCESS:
+      return [action.payload, ...state];
     default:
       return state;
   }

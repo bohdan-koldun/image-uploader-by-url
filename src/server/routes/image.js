@@ -28,19 +28,19 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
+  const { url } = req.body;
+  
   try {
-    const { url } = req.body;
     const imageUploudedInfo = await imageUploader(url, 'uploads');
     imageUploudedInfo.sourceURL = url;
 
-    imageApi.createOne(imageUploudedInfo, (data) => {
+    imageApi.createOne(imageUploudedInfo, (err, data) => {
       res.data = data;
       res.json(res.data);
     });
   } catch (error) {
     res.status(400);
-    res.data = error;
-    res.json(res.data);
+    res.json(url);
   }
 });
 

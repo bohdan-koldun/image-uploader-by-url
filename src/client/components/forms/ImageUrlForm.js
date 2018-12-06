@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FaUpload } from 'react-icons/fa';
+
 import './form.css';
 
 export default class ImageUrlForm extends Component {
@@ -13,7 +14,7 @@ export default class ImageUrlForm extends Component {
     const { url } = this.state;
     const { uploadNewImage } = this.props;
     uploadNewImage({ url });
-    console.log(url);
+    this.setState({ url: '' });
   }
 
   render() {

@@ -5,7 +5,7 @@ import './images.css';
 export default class ImagesList extends Component {
   render() {
     const { imageList } = this.props;
-    const listItems = imageList.map((image) => <Image image={image} />);
+    const listItems = imageList.map((image) => <Image image={image} key={image._id} />);
     return (
       <div className='image-list'>
         {listItems}
@@ -17,7 +17,7 @@ export default class ImagesList extends Component {
 function Image(props) {
   const { image } = props;
   return (
-    <div key={image._id} className='img-wrap'>
+    <div className='img-wrap'>
       <img src={image.sourceURL} alt={image.name} />
     </div>
 
