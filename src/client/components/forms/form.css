@@ -6,7 +6,7 @@
     padding: 15px;
 }
 
-input{
+.uploader-form input{
     border: 1px solid green;
     padding: 15px 10px;
     margin: 10px;
@@ -14,7 +14,7 @@ input{
     max-width: 900px;
 }
 
-button{
+.uploader-form button{
     border: none;
     background: blue;
     color: white;
@@ -26,10 +26,10 @@ button{
     align-items: center;
 }
 
-button:hover{
+.uploader-form button:hover{
     background: rgb(52, 5, 221);
 }
 
-button svg{
+.uploader-form button svg{
     margin-right: 5px;
 }
