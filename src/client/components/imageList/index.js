@@ -18,7 +18,11 @@ function Image(props) {
   const { image } = props;
   return (
     <div className='img-wrap'>
-      <img src={image.sourceURL} alt={image.name} />
+      <div className='img-card'>
+        <img src={image.sourceURL} alt={image.name} />
+        <div>{image.name}</div>
+        <div>{`size: ${image.width}x${image.height}, ${Math.round(image.size / 1024, -1)} KB`}</div>
+      </div>
     </div>
 
   );

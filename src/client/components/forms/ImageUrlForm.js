@@ -12,9 +12,11 @@ export default class ImageUrlForm extends Component {
 
   handleSubmit = () => {
     const { url } = this.state;
-    const { uploadNewImage } = this.props;
-    uploadNewImage({ url });
-    this.setState({ url: '' });
+    if (url !== '') {
+      const { uploadNewImage } = this.props;
+      uploadNewImage({ url });
+      this.setState({ url: '' });
+    }
   }
 
   render() {
